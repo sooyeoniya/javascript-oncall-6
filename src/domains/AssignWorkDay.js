@@ -27,8 +27,7 @@ class AssignWorkDay {
       else if (this.#checkWeekday(curDayWeekIdx)) name = this.#updateArrayAndSetName(name, 'weekday');
 
       this.#schedule.push({ month, day: curDay, dayWeek: DAYWEEK[curDayWeekIdx], name }); // 근무 일정 추가
-      curDayWeekIdx += 1; // 다음 요일로 업데이트
-      if (curDayWeekIdx >= DAYWEEK.length) curDayWeekIdx = 0;
+      curDayWeekIdx = (curDayWeekIdx + 1) % DAYWEEK.length; // 다음 요일로 업데이트
     }
   }
 
